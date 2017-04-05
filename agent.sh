@@ -37,13 +37,13 @@ echo "=> Configuring Puppet Agent ..."
 echo "[main]
     logdir = /var/log/puppet
     rundir = /var/run/puppet
-    ssldir = $vardir/ssl
+    ssldir = \$vardir/ssl
     server = $MASTER_HOSTNAME
     environment = $ENVIRONMENT
 
 [agent]
-    classfile = $vardir/classes.txt
-    localconfig = $vardir/localconfig" > /etc/puppet/puppet.conf
+    classfile = \$vardir/classes.txt
+    localconfig = \$vardir/localconfig" > /etc/puppet/puppet.conf
 echo "=> Done!"
 echo "=> Running puppet agent"
 puppet agent -t
@@ -51,3 +51,4 @@ echo "=> Ensuring Puppet Agent is running ..."
 puppet resource service puppet ensure=running enable=true > /dev/null 2>&1
 echo "=> Done!"
 echo ""
+
