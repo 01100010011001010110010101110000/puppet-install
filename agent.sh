@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "======================================================================================"
 echo ""
 echo "Puppet Agent Installation"
@@ -36,8 +38,8 @@ echo "[main]
     logdir = /var/log/puppet
     rundir = /var/run/puppet
     ssldir = $vardir/ssl
-    server = $(MASTER_HOSTNAME)
-    environment = $(ENVIRONMENT)
+    server = $MASTER_HOSTNAME
+    environment = $ENVIRONMENT
 
 [agent]
     classfile = $vardir/classes.txt
