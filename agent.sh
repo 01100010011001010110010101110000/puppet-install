@@ -46,7 +46,7 @@ echo "[main]
     localconfig = $vardir/localconfig" > /etc/puppet/puppet.conf
 echo "=> Done!"
 echo "=> Running puppet agent"
-puppet agent -t -w 10 
+puppet agent -t
 echo "=> Ensuring Puppet Agent is running ..."
 puppet resource service puppet ensure=running enable=true > /dev/null 2>&1
 echo "=> Done!"
